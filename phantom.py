@@ -9,7 +9,9 @@
 # ═══════════════════════════════════════════════════════════════
 import asyncio, gc, hashlib, io, json, logging, math, os
 import random, re, secrets, time, zlib, urllib.parse
-from typing import Optional, Any
+from typing import Optional, Any, Callable, Awaitable
+from functools import wraps
+from io import BytesIO
 
 import aiohttp
 from aiohttp import web
@@ -17,25 +19,24 @@ import cloudscraper
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from cryptography.fernet import Fernet
 import motor.motor_asyncio
+from motor.motor_asyncio import AsyncIOMotorClient   # ← ADD THIS
 from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageEnhance
 import requests
 
-from aiogram import Bot, Dispatcher, Router, F
-from functools import wraps
+from aiogram import Bot, Dispatcher, Router, F, BaseMiddleware
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiogram.filters import Command, CommandStart
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.storage.mongo import MongoStorage
-from aiogram.types import (
-    Message, CallbackQuery, InputFile, BufferedInputFile,
-    InlineKeyboardMarkup, InlineKeyboardButton,
-    BotCommand, FSInputFile, CopyTextButton,
-)
+from aiogram.types import TelegramObject
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from aiogram.webhook.aiohttp_server import SimpleRequestHandler, setup_application
 import aiogram.types as tg_types
+from aiogram.types import (
+    # ... your existing types list
+)
 
 # Rich Message imports — Bot API 10.1–10.3
 from aiogram.types import (
