@@ -34,9 +34,6 @@ from aiogram.types import TelegramObject
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from aiogram.webhook.aiohttp_server import SimpleRequestHandler, setup_application
 import aiogram.types as tg_types
-from aiogram.types import (
-    # ... your existing types list
-)
 
 # Rich Message imports — Bot API 10.1–10.3
 from aiogram.types import (
