@@ -1,0 +1,27 @@
+#https://github.com/esh-pro/Phantom--cr-nf-ck-/blob/main/phantom.py
+
+name: Test Phantom Bot
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: pip install aiogram==3.31.0 motor cryptography cloudscraper aiohttp pillow apscheduler requests
+
+      - name: Run Bot
+        run: |
+          timeout 1200 python3 phantom.py || true
