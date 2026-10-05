@@ -20,6 +20,7 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageEnhance
 import requests
 
 from aiogram import Bot, Dispatcher, Router, F
+from functools import wraps
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiogram.filters import Command, CommandStart
