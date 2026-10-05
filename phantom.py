@@ -41,6 +41,7 @@ from aiogram.types import (
     InputRichBlockSectionHeading,
     InputRichBlockParagraph,
     InputRichBlockDivider,
+    InlineKeyboardButton,
     InputRichBlockTable,
     InputRichBlockList,
     InputRichBlockListItem,
